@@ -4,11 +4,15 @@ import org.scalajs.sbtplugin._
 import ScalaJSPlugin.autoImport._
 
 object Settings {
+  lazy val projectResolvers = resolvers ++= Seq(
+    "Sonatype OSS Releases" at "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+  )
+
   lazy val shared = Seq(
-    scalacOptions ++= Seq("-feature","-deprecation", "-unchecked", "-Xlint"),
+    projectResolvers,
     testFrameworks += new TestFramework("utest.runner.Framework"),
     Dependencies.shared
-  )
+  ) ++ Formatting.settings
 
   lazy val jvm = Seq(
     Dependencies.jvm
