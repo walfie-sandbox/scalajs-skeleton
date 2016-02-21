@@ -7,6 +7,7 @@ object Formatting {
     ScalariformKeys.preferences := ScalariformKeys.preferences.value
       .setPreference(DoubleIndentClassDeclaration, true)
       .setPreference(PlaceScaladocAsterisksBeneathSecondAsterisk, true)
+      .setPreference(SpacesAroundMultiImports, false)
   )
 }
 

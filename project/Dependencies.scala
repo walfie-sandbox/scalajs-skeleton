@@ -5,7 +5,8 @@ import ScalaJSPlugin.autoImport._
 
 object Dependencies {
   lazy val shared = libraryDependencies ++= Seq(
-    "com.lihaoyi" %%% "utest" % "0.3.1" % "test"
+    "com.lihaoyi" %%% "utest" % "0.3.1" % "test",
+    "com.lihaoyi" %%% "upickle" % "0.3.8"
   )
 
   lazy val jvm = libraryDependencies ++= Seq()

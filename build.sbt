@@ -1,7 +1,7 @@
 lazy val projectSettings = Seq(
   scalaVersion := "2.11.7",
-  name := "example",
-  organization := "walfie",
+  name := "tweets dot zip",
+  organization := "walfie.tweets",
   version := "0.0.1-SNAPSHOT"
 )
 
