@@ -1,4 +1,4 @@
-package walfie.example
+package walfie.tweets
 
 import utest._
 import utest.ExecutionContext.RunNow
