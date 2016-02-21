@@ -2,27 +2,20 @@ package walfie.tweets.js
 
 import org.scalajs.dom.document
 import org.scalajs.dom.raw.Element
-import scala.scalajs.js.{Dynamic, JSApp}
-import walfie.tweets.shared.models._
-import walfie.tweets.shared.util.SnakePickle
-import upickle.{default => UPickle}
+import scala.scalajs.js
 import upickle.json
+import upickle.{default => UPickle}
+import walfie.tweets.js.models._
 
-object Example extends JSApp {
+object Example extends js.JSApp {
   def main(): Unit = {
     val div: Element = document.createElement("div")
     document.body.appendChild(div)
 
-    try {
-      val x = SnakePickle.readJs[Vector[Tweet]](
-        json.readJs(
-          Dynamic.global.Grailbird.data.tweets_2015_12
-        )
-      )
-      println(x.head)
-    } catch {
-      case e: upickle.Invalid.Data => println(e.msg)
-    }
+    val data = js.Dynamic.global.Grailbird.data.asInstanceOf[js.Dictionary[js.Array[Tweet]]]
+
+    val dataForMonth = data.getOrElse("tweets_2015_12", js.Array())
+    println(dataForMonth(0).inReplyToStatusId)
   }
 }
 
